@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,6 +34,9 @@ public class Experiment {
 	@Column(name = "samples")
 	@OneToMany(fetch =  FetchType.EAGER)
 	private List<Sample> sampleList;
+	
+	@ManyToOne
+	private Experiment experiment;
 
 	public Integer getExperimentID() {
 		return experimentID;
@@ -72,6 +76,14 @@ public class Experiment {
 
 	public void setSampleList(List<Sample> sampleList) {
 		this.sampleList = sampleList;
+	}
+
+	public Experiment getExperiment() {
+		return experiment;
+	}
+
+	public void setExperiment(Experiment experiment) {
+		this.experiment = experiment;
 	}
 	
 }
