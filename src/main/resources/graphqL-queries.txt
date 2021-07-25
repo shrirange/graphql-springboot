@@ -1,0 +1,97 @@
+Endpoint
+http://localhost:8080/testnetwork
+
+mutation{
+  createSample(details: {
+        sampleDescription: "This is for Covid-18",
+        sampleName: "Bat",
+        sampleType: "Tough"
+      }){
+    sampleId
+    sampleName
+  }
+ }
+ 
+mutation{
+ 
+  createSample(details:{
+        sampleDescription: "This is for Covid-11",
+        sampleName: "Rat",
+        sampleType: "Tough"
+      }){
+    sampleId
+    sampleName
+  }
+}
+mutation{
+  
+  createSample(details: {
+          sampleDescription: "This is for Covid-19",
+        sampleName: "Mouse",
+        sampleType: "Tough"
+      }){
+    sampleId
+    sampleName
+  }
+}
+
+mutation{
+
+  createSample(details:{
+         sampleDescription: "This is for Covid-20",
+        sampleName: "Human",
+        sampleType: "Easy"
+      }){
+    sampleId
+    sampleName
+  }
+}
+
+query{
+  listSamples{
+    sampleId
+    sampleDescription
+    sampleName
+    sampleType
+  }
+}
+
+mutation{
+  createExperiment(details:{sampleList : [
+   {
+        sampleId: 1,
+        sampleDescription: "This is for Covid-11",
+        sampleName: "Rat",
+        sampleType: "Tough"
+      }
+  ]
+    experimentName:"Trignometry",
+    experimentDate:"2021-08-03",completed:false}){
+    experimentID
+    sampleList{
+      sampleId
+      sampleName
+      sampleDescription
+      sampleType
+    }
+  }
+  
+  }
+query{
+  listExperiments{
+    experimentID
+    completed
+    experimentName 
+  }
+}
+query{
+  listExperiments{
+    experimentID
+    completed
+    experimentName 
+    sampleList{
+      sampleId
+      sampleName
+    }
+  }
+}
