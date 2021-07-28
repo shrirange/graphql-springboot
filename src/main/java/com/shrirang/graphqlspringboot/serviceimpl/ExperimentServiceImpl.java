@@ -30,7 +30,13 @@ public class ExperimentServiceImpl implements ExperimentService {
 	}
 	
 	@Override
-	public Experiment findbyId(Long id) {
+	public String deleteExperiment(Integer experimentID) {
+		 experimentRepository.deleteById(experimentID);
+		 return String.format("Experiment \"%d\" deleted successfully", experimentID);
+	}
+	
+	@Override
+	public Experiment findbyId(Integer id) {
 		return experimentRepository.findById(id).get();
 	}
 	

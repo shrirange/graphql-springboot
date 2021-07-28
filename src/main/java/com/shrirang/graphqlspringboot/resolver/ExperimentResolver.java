@@ -37,6 +37,12 @@ public class ExperimentResolver {
 		
 	}
 	
+	@GraphQLMutation(name = "deleteExperiment")
+	public String deleteExperiment(@GraphQLArgument(name="id") Integer experimentID) {
+		return experimentService.deleteExperiment(experimentID);
+		
+	}
+	
 	@GraphQLQuery(name = "listExperiments")
 	public List<Experiment> listExperiments(){
 		logger.info("Listing experiment");
@@ -44,7 +50,7 @@ public class ExperimentResolver {
 	}
 	
 	@GraphQLQuery(name = "getExperimentById")
-	public Experiment getExperimentById(@GraphQLArgument(name = "id") Long id) {
+	public Experiment getExperimentById(@GraphQLArgument(name = "id") Integer id) {
 		logger.info("getExperimentById");
 		return experimentService.findbyId(id);
 	}

@@ -31,6 +31,15 @@ public class Experiment {
 	@Column(name = "completed")
 	private Boolean completed;
 	
+	@Column(name = "comments")
+	private String comments;
+	
+	@Column(name = "reason")
+	private String reason;
+	
+	@Column(name = "instrument")
+	private String instrument;
+	
 	@Column(name = "samples")
 	@OneToMany(fetch =  FetchType.EAGER)
 	private List<Sample> sampleList;
@@ -85,5 +94,28 @@ public class Experiment {
 	public void setExperiment(Experiment experiment) {
 		this.experiment = experiment;
 	}
-	
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public String getInstrument() {
+		return instrument;
+	}
+
+	public void setInstrument(String instrument) {
+		this.instrument = instrument;
+	}
 }

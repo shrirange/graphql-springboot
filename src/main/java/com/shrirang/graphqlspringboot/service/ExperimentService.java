@@ -10,8 +10,10 @@ public interface ExperimentService {
 
 	Experiment createExperiment(Experiment experiment);
 
-	Experiment findbyId(Long id);
+	Experiment findbyId(Integer id);
 
 	Experiment updateExperiment(Experiment experiment);
+
+	String deleteExperiment(Integer experimentID);
 
 }

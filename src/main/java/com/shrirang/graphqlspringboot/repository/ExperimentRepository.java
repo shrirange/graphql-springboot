@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.shrirang.graphqlspringboot.entity.Experiment;
 
 @Repository
-public interface ExperimentRepository extends  JpaRepository<Experiment, Long>{
+public interface ExperimentRepository extends  JpaRepository<Experiment, Integer>{
 
 }
